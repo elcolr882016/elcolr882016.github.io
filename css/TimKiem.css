@@ -1,0 +1,32 @@
+.timkiem{
+    width: 100%;
+    max-width: 1222.5px;
+    min-height: 35vh;
+    margin: auto;
+    text-align: center;
+}
+.banner img{
+    width: 100vw;
+    max-height: 35vh;
+}
+#txtnoneresult{
+    padding: 2% 0;
+    font-size: 1.5rem;
+}
+#gohome{
+    border: 2px solid gold;
+    border-radius: 10px;
+    width: 200px;
+    color: gold;
+    background-color: black ;
+    height: 50px;
+}
+#gohome:hover{
+    background-color: gold;
+    color: white;
+}
+#txtresult{
+    text-align: left;
+    padding: 2% 0 0 0;
+    font-size: 1.5rem;
+}

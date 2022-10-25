@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dụng Cụ Yoga - TT Store</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
+    <script src="../bootstrap/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/TrangChu.css" type="text/css">
+    <script src="../js/data.js"></script>
+    <script src="../js/functionsHandle.js"></script>
+    <script src="../js/regex.js"></script>
+    <script src="../js/search.js"></script>
+</head>
+<body>
+    <div class= "wrapper">
+        <nav class="navbar navbar-expand-xl navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+                <button class="navbar-toggler d-xl-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="./TrangChu.html"><img src="../img/logo.png" alt="logo" id="logo"></a>
+                <ul class="navbar-nav  mt-2 mt-lg-0 icon-user-phone">
+                    <li class="nav-item">
+                        <button type="button" class="nav-link bi bi-person btn-person" data-toggle="modal" data-target="#ModalLogin"></a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link bi bi-cart btn-person" id="icon-cart" onclick="go()"></button>
+                    </li>
+                </ul>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav  mt-2 mt-lg-0 nav-phone">
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0" id="form-search2">
+                            <input class="form-control mr-sm-2" id="input-search2" type="text" placeholder="Tìm kiếm sản phẩm vd: Tạ Tay">
+                            <span class="nav-link bi bi-search" id="search2"></span>
+                        </form>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-auto ml-auto mt-2 mt-lg-0 navcenter">
+                  <li class="nav-item dropdown">
+                    <a href="./DungCuTapGym.html" class="nav-link dropdown-toggle" data-toggle="dropdown">Dụng Cụ Tập Gym</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="./PhuKienTapGym.html">Phụ Kiện Tập Gym</a>
+                        <a class="dropdown-item" href="./GianTaDaNang.html">Giàn Tạ Đa Năng</a>
+                    </div>
+                  </li>
+
+                    <li class="nav-item ">
+                      <a class="nav-link" href="./DungCuYoga.html">Dụng Cụ Tập Yoga</a>
+                    </li>
+
+                    <li class="nav-item ">
+                      <a class="nav-link"  href="./MayChayBo.html">Máy Chạy Bộ</a>
+                    </li>
+                    
+                    <li class="nav-item ">
+                        <a class="nav-link"  href="./GheMassage.html">Ghế Massage</a>
+                      </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./GioiThieu.html">Giới Thiệu </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./LienHe.html">Liên Hệ</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav  mt-2 mt-lg-0 nav-pc">
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0" id="form-search">
+                            <input class="form-control mr-sm-2" id="input-search" type="text" placeholder="Tìm kiếm sản phẩm vd: Tạ Tay">
+                            <span class="nav-link bi bi-search" id="search" ></span>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-link bi bi-person btn-person-pc"  id="btnLogin"></a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link bi bi-cart btn-person-pc" id="icon-cart-pc" onclick="go()"></button>
+                    </li>
+                </ul>
+                
+            </div>
+            </div>
+        </nav>
+
+
+
+        <div class="container-fluid">
+            <div class="banner">
+                <img src="../img/banner_4.jpg" alt="Banner">
+            </div>
+            <div class="name name-page">
+                <p class="name-product ">Dụng Cụ Tập Yoga</p>
+            </div>
+            <div class="row" id="row-dungcuyoga"></div>
+        </div>
+
+
+        <footer>
+            <div class="container-fluid footer">
+                <div class="footer1">
+                    <p>©Copyright by TT Store
+                      <br>Hotline: +84 926 000 000
+                      <br>Đại học Công nghiệp, 12 Nguyễn Văn Bảo, Phường 4, Gò Vấp, Tp HCM.  
+                    </p>
+                </div>
+                <div class="footer2">
+                  <h4> <b>Kết nối với chúng tôi</b> </h4>
+                    <p>
+                       <span class="bi bi-facebook icon-footer"></span>
+                       <span class="bi bi-instagram icon-footer"></span>
+                       <span class="bi bi-linkedin icon-footer"></span>
+                       <span class="bi bi-twitter icon-footer"></span>
+                    </p>
+                </div>
+                <div class="footer3">
+                  <h4> <b>Thanh toán</b> </h4>
+                   <img src="../img/thanhtoan.png" alt="thanh toán">
+                </div>
+                <div class="footer4">
+                  <h4> <b>Chứng nhận</b> </h4>
+                   <img src="../img/ChungNhan.png" alt="chứng nhận">
+                </div>
+                <div class="footer5">
+                  <h4 class="text text-center"> <a href="../html/SiteMap.html" style="color: white;"><b>SiteMap</b></a> </h4>
+                </div>
+            </div>
+      </footer>
+
+        <div class="modal bd-example-modal-sm" id="thongbao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Đăng Nhập</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body modal-body-GH">
+                  Bạn đã đăng nhập thành công
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Đóng</button>
+                  <button type="button" class="btn btn-primary" id="goCH">Vào cửa hàng</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal bd-example-modal-sm" id="thongbao2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Đăng Kí</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body modal-body-GH">
+                  Bạn đã đăng kí thành viên thành công
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Đóng</button>
+                  <button type="button" class="btn btn-outline-success" id="goDN">Đăng nhập</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal" id="ModalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Đăng nhập</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Tài khoản <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="InputEmail" placeholder="Nhập email..." >
+                        <small id="login-email-note" class="form-text note"> </small>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Mật khẩu <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="password" class="form-control form-login-txt" id="InputPassword" placeholder="Nhập mât khẩu...">
+                        <small id="login-pass-note" class="form-text note"> </small>
+                      </div>
+                      <small id="login-note" class="form-text note"> </small>
+                      <div class="row justify-content-center">
+                        <button type="button" class="btn btn-outline-success" id="btnLoginform">Đăng Nhập</button>
+                        <button type="button" class="btn btn-outline-danger ml-2" id="btnRegister" >Đăng kí</button>
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="modal" id="ModalRegister" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalRegisterLabel">Đăng kí tài khoản</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Họ và tên <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="RegisterName" placeholder="Nguyễn Văn A">
+                        <small id="RegisterName-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Tài khoản Email <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="RegisterEmail" placeholder="example@gmail.com">
+                        <small id="RegisterEmail-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Mật khẩu <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="password" class="form-control form-login-txt" id="RegisterPassword1" placeholder="Nhập mât khẩu" >
+                        <small id="RegisterPassword1-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Nhập lại mật khẩu <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="password" class="form-control form-login-txt" id="RegisterPassword2" placeholder="Nhập lại mật khẩu" >
+                        <small id="RegisterPassword2-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Số điện thoại <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="RegisterPhone" placeholder="0925000000">
+                        <small id="RegisterPhone-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Địa chỉ <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="RegisterAddress" placeholder="ĐH Công Nghiệp TP.HCM">
+                        <small id="RegisterAddress-note" class="form-text note"> </small>
+                      </div>
+
+                      <small id="Register-note" class="form-text note"> </small>
+
+                      <div class="row justify-content-center">
+                        <button type="button" class="btn btn-outline-danger" id="Register" >Đăng kí</button>
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+         document.getElementById('row-dungcuyoga').innerHTML =  renderAllProduct(60,90);
+         changeIconGH();
+    </script>
+</body>
+</html>

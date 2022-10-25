@@ -1,0 +1,141 @@
+.giohang{
+    max-width: 1220px;
+    margin:auto;
+    padding: 4% 0 !important;
+    display: flex;
+    flex-direction: row;
+}
+.giohang-left{
+    width: 67%;
+    padding:0 2%;
+    border-right: 2px solid #888e8f ;
+}
+#gh-name{   
+    max-height: 108px;
+    height: 108px;
+    padding: 10px;
+}
+.gh-name-watch{
+    color: black;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-bottom: 0 !important;
+    font-size: 1rem !important;
+}
+
+#gh-pic img{
+    width: 100%;
+    min-width: 76.8px;
+}
+.giohang-left td,th{
+    border-bottom: 2px solid #e9e9e9 ;
+}
+th{
+    font-size: 18px;
+    padding: 20px 0;
+}
+.gh-tt{
+    width: 15% !important;
+}
+#gh-soluong{
+    min-width: 100px ;
+}
+.soluong{
+    height: 25px;
+    width: 37px;
+    border: 1px solid #888e8f ;
+    text-align: center;
+    overflow: hidden;
+  }
+ #down, #up{
+    height: 25px;
+    width: 20px;
+    border: 1px solid #888e8f ;
+    background-color: rgba(207, 204, 204, 0.966);
+  }
+  #down:hover, #up:hover{
+    background-color: #eb4d4b;
+  }
+.totalprice{
+    text-align: right;
+}
+.amount{
+    text-align: center;
+}
+.gh-price{
+    text-align: left;
+}
+.giohang-right{
+    width: 33%;
+    padding:0 2%;
+}
+.giohang-right table{
+    width: 100%;
+}
+.giohang-rigth th,td{
+    padding: 20px 0;
+}
+.giohang-right table tbody tr td:nth-child(2){
+    text-align: right;
+}
+#btnthanhtoan{
+    color: red;
+}
+.capnhat{
+    margin-top: 20px;
+    border: 2px solid gold;
+    border-radius: 10px;
+    width: 200px;
+    color: gold;
+    background-color: black ;
+    height: 50px;
+}
+.capnhat:hover{
+    background-color: gold;
+    color: white;
+}
+#thongbao-giohang{
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+#quaylaiFalse{
+    margin:0 calc(50% - 102.5px) ;
+}
+.thanhtoan{
+    margin-top: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    width: 100%;
+    color: white;
+    background-color: gold;
+    height: 50px;
+    font-weight: bold;
+}
+.thanhtoan:hover{
+    opacity: .5;
+    border: 2px solid gold;
+    color: black;
+}
+#pay #total{
+    border-top: 2px solid #e9e9e9 ;
+}
+@media (max-width: 849.98px) {
+    .giohang{
+        flex-direction: column !important;
+    }
+    .giohang-left{
+        width: 100%;
+        padding: 0 20px;
+    }
+    .giohang-right{
+        width: 100%;
+        padding: 0 20px;
+        margin-top: 20px;
+    }
+}
+@media (max-width: 575.98px){
+
+}

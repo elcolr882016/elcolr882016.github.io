@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán - TT Store</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
+    <script src="../bootstrap/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/TrangChu.css" type="text/css">
+    <link rel="stylesheet" href="../css/ThanhToan.css" type="text/css">
+    <script src="../js/data.js"></script>
+    <script src="../js/functionsHandle.js"></script>
+    <script src="../js/regex.js"></script>
+    <script src="../js/search.js"></script>
+</head>
+<body>
+    <div class= "wrapper">
+        <nav class="navbar navbar-expand-xl navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+                <button class="navbar-toggler d-xl-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="./TrangChu.html"><img src="../img/logo.png" alt="logo" id="logo"></a>
+                <ul class="navbar-nav  mt-2 mt-lg-0 icon-user-phone">
+                    <li class="nav-item">
+                        <button type="button" class="nav-link bi bi-person btn-person" data-toggle="modal" data-target="#ModalLogin"></a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link bi bi-cart btn-person" id="icon-cart" onclick="go()"></button>
+                    </li>
+                </ul>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav  mt-2 mt-lg-0 nav-phone">
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0" id="form-search2">
+                            <input class="form-control mr-sm-2" id="input-search2" type="text" placeholder="Tìm kiếm sản phẩm vd: Tạ Tay">
+                            <span class="nav-link bi bi-search" id="search2"></span>
+                        </form>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-auto ml-auto mt-2 mt-lg-0 navcenter">
+                  <li class="nav-item dropdown">
+                    <a href="./DungCuTapGym.html" class="nav-link dropdown-toggle" data-toggle="dropdown">Dụng Cụ Tập Gym</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="./PhuKienTapGym.html">Phụ Kiện Tập Gym</a>
+                        <a class="dropdown-item" href="./GianTaDaNang.html">Giàn Tạ Đa Năng</a>
+                    </div>
+                  </li>
+
+                    <li class="nav-item ">
+                      <a class="nav-link" href="./DungCuYoga.html">Dụng Cụ Tập Yoga</a>
+                    </li>
+
+                    <li class="nav-item ">
+                      <a class="nav-link"  href="./MayChayBo.html">Máy Chạy Bộ</a>
+                    </li>
+                    
+                    <li class="nav-item ">
+                        <a class="nav-link"  href="./GheMassage.html">Ghế Massage</a>
+                      </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./GioiThieu.html">Giới Thiệu </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./LienHe.html">Liên Hệ</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav  mt-2 mt-lg-0 nav-pc">
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0" id="form-search">
+                            <input class="form-control mr-sm-2" id="input-search" type="text" placeholder="Tìm kiếm sản phẩm vd: Tạ Tay">
+                            <span class="nav-link bi bi-search" id="search" ></span>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-link bi bi-person btn-person-pc"  id="btnLogin"></a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link bi bi-cart btn-person-pc" id="icon-cart-pc" onclick="go()"></button>
+                    </li>
+                </ul>
+                
+            </div>
+            </div>
+        </nav>
+
+
+        <div class="container-fluid">
+            <div class="thanhtoan row">
+                <div class="thanhtoan-left col-md-6">
+                    <form class="thanhtoan">
+                        <p id="tt-tt">Thông tin thanh toán</p>
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Họ: </label><br/>
+                                <input class="tt-name" type="text" id="thanhtoan-Lname" placeholder="Nguyễn" >
+                                <small id="thanhtoan-Lname-note" class="form-text note"></small>
+                            </div>
+                            <div class="col-6">
+                                <label>Tên: </label><br/>
+                                <input class="tt-name" type="text" id="thanhtoan-name" placeholder="Văn A" >
+                                <small id="thanhtoan-name-note" class="form-text note"></small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Thành phố/Tỉnh: </label><br/>
+                                <input  type="text" id="thanhtoan-Tadd" placeholder="Thành Phố Hồ Chí Minh" >
+                                <small id="thanhtoan-Tadd-note" class="form-text note"></small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Địa chỉ: </label>
+                                <small id="thanhtoan-add-note" class="form-text note"></small>
+                                <input  type="text" id="thanhtoan-add" placeholder="Đường Nguyễn Văn Bảo, Quận Gò Vấp" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Số điện thoại: </label><br/>
+                                <input  type="text" id="thanhtoan-tel" placeholder="0876-543-210" >
+                                <small id="thanhtoan-tel-note" class="form-text note"></small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Email: </label><br/>
+                                <input  type="text" id="thanhtoan-email" placeholder="example@gmail.com" >
+                                <small id="thanhtoan-email-note" class="form-text note"></small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Hình thức thanh toán: </label> <br/>
+                                <input class="radio" id="tienmat" type="radio"  name="thanhtoan" checked >
+                                <label for="tienmat">Trả Tiền Mặt Khi Nhận Hàng</label><br>
+                                <input class="radio" id="nganhang" type="radio"  name="thanhtoan" >
+                                <label for="nganhang">Chuyển Khoản Ngân Hàng</label><br>
+                                <input class="radio" id="tragop" type="radio"  name="thanhtoan" >
+                                <label for="tragop">Thanh Toán Trả Góp Bằng Thẻ Tín Dụng</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Ghi chú đơn hàng (tùy chọn): </label><br/>
+                                <textarea id="tt-ghichu" cols="71" rows="6" placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay địa điểm giao hàng chi tiết..."></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="thanhtoan-right col-md-6">
+                    <div id="thanhtoan-center">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="3" id="th-tt"><p>Hóa Đơn Của Bạn</p></th>
+                                </tr>
+                            </thead>
+                            <tbody id="thanhtoan-ct">
+                                <tr id="sp-tt">
+                                    <td colspan="2"><p>Sản Phẩm</p></td>
+                                    <td></td>
+                                    <td class="al-right"><p>Tổng Cộng</p></td>
+                                </tr> 
+                            </tbody>
+                        </table>
+                        <small id="thanhtoan-note" class="form-text note"></small>
+                        <button class="dathang" id="dathang">ĐẶT HÀNG</button>
+                        <small class="form-text note"> * Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn đặt hàng của bạn, hỗ trợ trải nghiệm của bạn trên trang web này và cho các mục đích khác được mô tả trong chính sách riêng tư của chúng tôi.</small>
+                    </div>
+                </div>
+            </div>
+        </div> 
+           
+        <footer>
+            <div class="container-fluid footer">
+                <div class="footer1">
+                    <p>©Copyright by TT Store
+                      <br>Hotline: +84 926 000 000
+                      <br>Đại học Công nghiệp, 12 Nguyễn Văn Bảo, Phường 4, Gò Vấp, Tp HCM.  
+                    </p>
+                </div>
+                <div class="footer2">
+                  <h4> <b>Kết nối với chúng tôi</b> </h4>
+                    <p>
+                       <span class="bi bi-facebook icon-footer"></span>
+                       <span class="bi bi-instagram icon-footer"></span>
+                       <span class="bi bi-linkedin icon-footer"></span>
+                       <span class="bi bi-twitter icon-footer"></span>
+                    </p>
+                </div>
+                <div class="footer3">
+                  <h4> <b>Thanh toán</b> </h4>
+                   <img src="../img/thanhtoan.png" alt="thanh toán">
+                </div>
+                <div class="footer4">
+                  <h4> <b>Chứng nhận</b> </h4>
+                   <img src="../img/ChungNhan.png" alt="chứng nhận">
+                </div>
+                <div class="footer5">
+                  <h4 class="text text-center"> <a href="../html/SiteMap.html" style="color: white;"><b>SiteMap</b></a> </h4>
+                </div>
+            </div>
+        </footer>
+
+        <div class="modal bd-example-modal-sm" id="thongbaothanhtoan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Thanh Toán</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body modal-body-GH">
+                  Bạn đã thanh toán thành công
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" onclick="location.href = './ThanhToan.html'">Đóng</button>
+                  <button type="button" class="btn btn-primary" id="goCH">Vào cửa hàng</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal bd-example-modal-sm" id="thongbao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Đăng Nhập</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body modal-body-GH">
+                  Bạn đã đăng nhập thành công
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Đóng</button>
+                  <button type="button" class="btn btn-primary" id="goCH">Vào cửa hàng</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal bd-example-modal-sm" id="thongbao2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Đăng Kí</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body modal-body-GH">
+                  Bạn đã đăng kí thành viên thành công
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Đóng</button>
+                  <button type="button" class="btn btn-outline-success" id="goDN">Đăng nhập</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal" id="ModalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Đăng nhập</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Tài khoản <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="InputEmail" placeholder="Nhập email..." >
+                        <small id="login-email-note" class="form-text note"> </small>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Mật khẩu <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="password" class="form-control form-login-txt" id="InputPassword" placeholder="Nhập mât khẩu...">
+                        <small id="login-pass-note" class="form-text note"> </small>
+                      </div>
+                      <small id="login-note" class="form-text note"> </small>
+                      <div class="row justify-content-center">
+                        <button type="button" class="btn btn-outline-success" id="btnLoginform">Đăng Nhập</button>
+                        <button type="button" class="btn btn-outline-danger ml-2" id="btnRegister" >Đăng kí</button>
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="modal" id="ModalRegister" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalRegisterLabel">Đăng kí tài khoản</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Họ và tên <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="RegisterName" placeholder="Nguyễn Văn A">
+                        <small id="RegisterName-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Tài khoản Email <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="RegisterEmail" placeholder="example@gmail.com">
+                        <small id="RegisterEmail-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Mật khẩu <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="password" class="form-control form-login-txt" id="RegisterPassword1" placeholder="Nhập mât khẩu" >
+                        <small id="RegisterPassword1-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Nhập lại mật khẩu <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="password" class="form-control form-login-txt" id="RegisterPassword2" placeholder="Nhập lại mật khẩu" >
+                        <small id="RegisterPassword2-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Số điện thoại <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="RegisterPhone" placeholder="0925000000">
+                        <small id="RegisterPhone-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Địa chỉ <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="RegisterAddress" placeholder="ĐH Công Nghiệp TP.HCM">
+                        <small id="RegisterAddress-note" class="form-text note"> </small>
+                      </div>
+
+                      <small id="Register-note" class="form-text note"> </small>
+
+                      <div class="row justify-content-center">
+                        <button type="button" class="btn btn-outline-danger" id="Register" >Đăng kí</button>
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>   
+    
+    <script>
+        changeIconGH();
+        var str = document.getElementById('thanhtoan-ct').innerHTML ;
+        var gh;
+        var pay = 0;
+        if(localStorage.getItem("giohang") != null){
+            gh = localStorage.getItem("giohang").split(",");
+            for(var i = 0 ; i < 96 ;i++){
+                var sl = parseInt(gh[i]);
+                if( sl > 0){
+                    total = (parseFloat(data[i].price)*sl)*1000;
+                    pay += total;    
+                    str += `<tr id="thanhtoan-sp">
+                        <td id='tt-name' colspan="2">
+                            <p>${data[i].name}</p>
+                        </td>
+                        <td class="" id = "thanhtoan-soluong">
+                            <p>X ${sl}</p>
+                        </td>
+                        <td class="thanhtoan-total al-right" id = "totalprice${i}"><b>${ Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(total)}</b></td>
+                        </tr>` ;
+                }   
+            }
+            
+            str += ` 
+                <tr id="subtotal">
+                    <td colspan="2"><p>Tạm tính</p></td>
+                    <td></td>
+                    <td class="al-right"><b>${Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(pay)}</b></td>
+                </tr>  
+                <tr>
+                    <td colspan="2"><p>Thuế VAT (10%)</p></td>
+                    <td></td>
+                    <td class="al-right"><b>${Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(pay*0.1)}</b></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p>Phí vận chuyển</p></td>
+                    <td></td>
+                    <td class="al-right" id="otherfees">
+                        <b>${Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(0)}</b>
+                    </td>
+                </tr> 
+                <tr>
+                    <td colspan="2"><p>Các loại phí khác</p></td>
+                    <td></td>
+                    <td class="al-right" id="otherfees">
+                        <b>${Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(0)}</b>
+                    </td>
+                </tr>
+                <tr id="total">
+                    <td colspan="2"><p>Tổng tiền thanh toán</p></td>
+                    <td></td>
+                    <td class="al-right"><b>${Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(pay*0.1 + pay)}</b></td>
+                </tr>
+             `;
+
+            document.getElementById('thanhtoan-ct').innerHTML = str;
+        }
+       
+    </script>  
+</body>
+</html>

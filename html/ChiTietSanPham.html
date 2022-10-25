@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm - TT Store</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
+    <script src="../bootstrap/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/TrangChu.css" type="text/css">
+    <link rel="stylesheet" href="../css/ChiTietSanPham.css" type="text/css">
+    <script src="../js/data.js"></script>
+    <script src="../js/functionsHandle.js"></script>
+    <script src="../js/regex.js"></script>
+    <script src="../js/search.js"></script>
+</head>
+<body>
+    <div class= "wrapper">
+        <nav class="navbar navbar-expand-xl navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+                <button class="navbar-toggler d-xl-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="./TrangChu.html"><img src="../img/logo.png" alt="logo" id="logo"></a>
+                <ul class="navbar-nav  mt-2 mt-lg-0 icon-user-phone">
+                    <li class="nav-item">
+                        <button type="button" class="nav-link bi bi-person btn-person" data-toggle="modal" data-target="#ModalLogin"></a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link bi bi-cart btn-person" id="icon-cart" onclick="go()"></button>
+                    </li>
+                </ul>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav  mt-2 mt-lg-0 nav-phone">
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0" id="form-search2">
+                            <input class="form-control mr-sm-2" id="input-search2" type="text" placeholder="Tìm kiếm sản phẩm vd: Tạ Tay">
+                            <span class="nav-link bi bi-search" id="search2"></span>
+                        </form>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-auto ml-auto mt-2 mt-lg-0 navcenter">
+                  <li class="nav-item dropdown">
+                    <a href="./DungCuTapGym.html" class="nav-link dropdown-toggle" data-toggle="dropdown">Dụng Cụ Tập Gym</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="./PhuKienTapGym.html">Phụ Kiện Tập Gym</a>
+                        <a class="dropdown-item" href="./GianTaDaNang.html">Giàn Tạ Đa Năng</a>
+                    </div>
+                  </li>
+
+                    <li class="nav-item ">
+                      <a class="nav-link" href="./DungCuYoga.html">Dụng Cụ Tập Yoga</a>
+                    </li>
+
+                    <li class="nav-item ">
+                      <a class="nav-link"  href="./MayChayBo.html">Máy Chạy Bộ</a>
+                    </li>
+                    
+                    <li class="nav-item ">
+                        <a class="nav-link"  href="./GheMassage.html">Ghế Massage</a>
+                      </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./GioiThieu.html">Giới Thiệu </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./LienHe.html">Liên Hệ</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav  mt-2 mt-lg-0 nav-pc">
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0" id="form-search">
+                            <input class="form-control mr-sm-2" id="input-search" type="text" placeholder="Tìm kiếm sản phẩm vd: Tạ Tay">
+                            <span class="nav-link bi bi-search" id="search" ></span>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-link bi bi-person btn-person-pc"  id="btnLogin"></a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link bi bi-cart btn-person-pc" id="icon-cart-pc" onclick="go()"></button>
+                    </li>
+                </ul>
+                
+            </div>
+            </div>
+        </nav>
+
+
+
+        <div class="container-fluid  content">
+            <div class="product">
+                <div class="product-name-img">
+                    <div class="product-img">
+                        <div class="slideshow-container" id="slideshow"></div>
+                    </div>
+                    <div class="product-name" >
+                        <p id="path"></p>
+                        <hr>
+                        <p id="product-name-title"></p>
+                        <p id="product-name-price"></p>
+                        <hr>
+                        <p id="danhmuc"></p>
+                        <p id="masp"></p>
+                        <p id="product-name-discriptions"></p>
+                        <hr>
+                        <form class="order">
+                            <input type="button" value="-" id="down" onclick="changeValueGH(-1)">
+                            <input type="text" value="1" id="soluong" >
+                            <input type="button" value="+" id="up" onclick="changeValueGH(1)">
+                            <br/>
+                            <input type="button" value="Thêm vào giỏ" id="themGioHang" onclick="valueGH()" data-toggle="modal" data-target="#exampleModal">
+                        </form>
+                        
+                        
+                    </div>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active tab-tt" href="#product-informations" role="tab" data-toggle="tab">Mô tả</a>
+                    </li>
+                    <li class="nav-item ">
+                      <a class="nav-link tab-tt" href="#product-guarantee" role="tab" data-toggle="tab">Chính sách bảo hành & Hậu mãi</a>
+                    </li>
+                </ul> 
+
+                <div class="tab-content">
+                    <div class="tab-pane active product-informations" role="tabpanel" id="product-informations">
+                        <div class="product-informations-attributes">
+                            <table class="product-attributes table table-striped" id="attributes"></table>
+                        </div>
+                    </div>
+                    <div class="tab-pane product-informations guarantee" role="tabpanel" id="product-guarantee">
+                        <p id="guarantee">
+                            <h5><b>CHẾ ĐỘ BẢO HÀNH</b></h5>
+
+                            <b>Tất cả các phụ kiện và dụng cụ thể thao khi bán ra đều kèm theo 2 phiếu bảo hành:</b>
+                            <br/>
+                            <br/>&#9679; 1 Phiếu Bảo Hành (hoặc Thẻ Bảo Hành/Sổ Bảo Hành) của hãng có giá trị bảo hành Quốc tế (Thời gian bảo hành tùy theo quy định của từng hãng).
+                            <br/>&#9679; 1 Phiếu Bảo Hành của TV (Sử dụng để được thay pin miễn phí vĩnh viễn & Hưởng chế độ bảo hành tăng thêm từ 1-4 năm của TV).
+                            <br/>
+                            <br/>Ví dụ: Ghế Massage Oreni OR-250 có chế độ bảo hành chính hãng : 6 năm 
+                            <br/>&#9679; Khi mua tại TV, khách hàng sẽ được tặng thêm thời gian bảo hành từ 4 năm về máy.
+                            <br/>&#9679; Tổng cộng: Khi mua tại TV, ghế Massage Oreni OR-250 sẽ được bảo hành máy = 10 năm.
+                            <br/>
+                            <br/>Lưu ý:
+                            <br/>&#9679; Đối với sản phẩm còn trong thời gian bảo hành Quốc Tế: Quý khách có thể đem tới TV hoặc bất kỳ nhà trung tâm bảo hành nào của hãng được ghi trên phiếu để yêu cầu được kiểm tra ghế Massage.
+                            <br/>&#9679; Đối với sản phẩm hết thời gian bảo hành Quốc Tế nhưng vẫn trong thời gian bảo hành tại TV: Quý khách đem ghế Massage kèm Phiếu Bảo Hành của TV tới bất kỳ chi nhánh nào của TV để được hướng dẫn và kiểm tra ghế.
+                            <br/>
+                            <br/>Điều Kiện Được Bảo Hành
+                            <br/>&#9679; Bảo hành chỉ có giá trị khi ghế có Phiếu bảo hành của hãng & Phiếu bảo hành của TV đi kèm, điền chính xác, đầy đủ các thông tin.
+                            <br/>&#9679; Phiếu bảo hành phải còn nguyên vẹn, không rách, chấp vá, hoen ố, mờ nhạt.
+                            <br/>&#9679; Còn trong thời gian bảo hành. Thời gian bảo hành được tính từ ngày mua có ghi trên Phiếu Bảo Hành.
+                            <br/>&#9679; Chỉ bảo hành thay thế mới cho những linh kiện, phụ tùng bị hỏng – không thay thế bằng một chiếc ghế Massage khác.
+                            <br/>Điều Kiện Không Được Bảo Hành
+                            <br/>&#9679; Ghế Massager không có Phiếu bảo hành của hãng và Phiếu bảo hành của TV đi kèm.
+                            <br/>&#9679; Sản phẩm bị hư hỏng do linh kiện trong máy hoặc do nhà sản xuất.
+                            <br/>&#9679; Hỏng hóc do hậu quả gián tiếp của việc sử dụng sai hướng dẫn của hãng có kèm theo ghế Massage.
+                            <br/>&#9679; Số máy và tem niêm phong trên sản phẩm phải còn nguyên vẹn, không bị rách hoặc mất đi. 
+                            <br/>&#9679; Số máy trên sản phẩm, trên phiếu bảo hành và trên phiếu xuất hàng phải giống nhau.
+                            <br/>Chế Độ Bảo Hành RED GUARANTEE
+                            <br/>&#9679; Tăng thêm 1-2 năm bảo hành tại TV ngoài chế độ bảo hành Quốc Tế của hãng để có tổng thời gian là 4 năm.
+                            <br/>&#9679; Ưu tiên bảo hành – Ghế Massage sẽ được xếp vào danh sách ưu tiên bảo hành để nhanh chóng quay lại với Quý khách.
+                            <br/>&#9679; Giao nhận ghế Massage bảo hành ngay tại cửa hàng hoặc nhà sản xuất của hãng.
+                            <br/>&#9679; Cập nhật tình trạng ghế Massage qua điện thoại tới Quý khách. Quý khách được tư vấn, cập nhật tình trạng ghế trong quá trình đồng hồ được bảo hành.
+                            <br/>&#9679; 4 năm kiểm tra ghế miễn phí.
+                            <br/>CHÍNH SÁCH ĐỔI HÀNG
+                            <br/>
+                            <br/>Trong vòng 7 ngày kể từ ngày mua hàng từ cửa hàng TV Store, Quý khách có thể yêu cầu đổi hàng hoàn toàn miễn phí. Thời hạn 7 ngày được tính theo dấu bưu điện khi Quý khách gửi sản phẩm về cho chúng tôi hoặc thời gian chúng tôi tiếp nhận yêu cầu trực tiếp (tại cửa hàng) của Quý khách.
+                            <br/>
+                            <br/>&#9679; Yêu cầu đổi hàng cần được thực hiện trong vòng 7 ngày kể từ ngày Quý khách nhận được hàng.
+                            <br/>&#9679; Sản phẩm không có dấu hiệu đã qua sử dụng (còn đầy đủ tem niêm phong bảo hành,...)
+                            <br/>&#9679; Sản phẩm không bị dây bẩn, trầy xước, hư hỏng, dính hoá chất hoặc có dấu hiệu cạy mở.
+                            <br/>&#9679; Các bộ phận, linh kiện, phụ kiện, tài liệu hướng dẫn sử dụng, tài liệu kỹ thuật, quà tặng kèm theo (nếu có), … 
+                            <br/>&#9679; Hộp đựng, bao bì đóng gói sản phẩm còn nguyên vẹn, không bị móp, rách, ố vàng, …
+                            <br/>&#9679; Chỉ chấp nhận đổi 1 lần duy nhất tính từ ngày mua sản phẩm.
+                            <br/>HƯỚNG DẪN MUA HÀNG
+                            <br/>
+                            <br/>Do đặc thù mặt hàng ghế Massage cao cấp nên chúng tôi khuyến khích Quý khách tới tham quan và mua sắm tại hệ thống đại lý cửa hàng của TV Store.
+                            <br/>
+                            <br/>&#9679; Hệ Thống Chi Nhánh
+                            <br/>Trường hợp quý khách ở xa (khu vực không có hệ thống cửa hàng của TV), không có thời gian tới cửa hàng, hay theo yêu cầu của quý khách - Để đảm bảo sự thuận tiện nhất cho quá trình mua hàng của Quý khách, cửa hàng TV Store sẽ áp dụng hình thức giao hàng và thu tiền tận nhà (COD) (Quý khách chỉ phải trả tiền khi nhận được hàng)
+                            <br/>&#9679; Gọi Ngay: 1900.6777
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="sanphamtuongtu">
+                    <hr>
+                    <span class="sanphamtuongtu-title">Một số sản phẩm tương tự</span>
+                    <div class="row" id="sptt-product"></div>
+                </div>
+            </div>
+
+            
+            <div class="modal bd-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Giỏ Hàng</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body modal-body-GH">
+                      Sản phẩm được thêm vào giỏ thành công
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-close" data-dismiss="modal">Đóng</button>
+                      <button type="button" class="btn btn-goGH" onclick="go()">Xem giỏ hàng</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
+            
+        </div>    
+        <footer>
+          <div class="container-fluid footer">
+              <div class="footer1">
+                  <p>©Copyright by TB Store
+                    <br>Hotline: +84 925 000 000
+                    <br>Đại học Công nghiệp, 12 Nguyễn Văn Bảo, Phường 4, Gò Vấp, Tp HCM.  
+                  </p>
+              </div>
+              <div class="footer2">
+                <h4> <b>Kết nối với chúng tôi</b> </h4>
+                  <p>
+                     <span class="bi bi-facebook icon-footer"></span>
+                     <span class="bi bi-instagram icon-footer"></span>
+                     <span class="bi bi-linkedin icon-footer"></span>
+                     <span class="bi bi-twitter icon-footer"></span>
+                  </p>
+              </div>
+              <div class="footer3">
+                <h4> <b>Thanh toán</b> </h4>
+                 <img src="../picture/thanhtoan.png" alt="thanh toán">
+              </div>
+              <div class="footer4">
+                <h4> <b>Chứng nhận</b> </h4>
+                 <img src="../picture/chungnhan.png" alt="chứng nhận">
+                 <img src="../picture/chungnhan2.png" alt="chứng nhận">
+              </div>
+              <div class="footer5">
+                <h4 class="text text-center"> <a href="../html/SiteMap.html" style="color: white;"><b>SiteMap</b></a> </h4>
+            </div>
+          </div>
+      </footer>
+
+        <div class="modal bd-example-modal-sm" id="thongbao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Đăng Nhập</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body modal-body-GH">
+                  Bạn đã đăng nhập thành công
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Đóng</button>
+                  <button type="button" class="btn btn-primary" id="goCH">Vào cửa hàng</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal bd-example-modal-sm" id="thongbao2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Đăng Kí</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body modal-body-GH">
+                  Bạn đã đăng kí thành viên thành công
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Đóng</button>
+                  <button type="button" class="btn btn-outline-success" id="goDN">Đăng nhập</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal" id="ModalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Đăng nhập</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Tài khoản <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="email" class="form-control form-login-txt" id="InputEmail" placeholder="Nhập email..." >
+                        <small id="login-email-note" class="form-text note"> </small>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Mật khẩu <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="password" class="form-control form-login-txt" id="InputPassword" placeholder="Nhập mât khẩu...">
+                        <small id="login-pass-note" class="form-text note"> </small>
+                      </div>
+                      <small id="login-note" class="form-text note"> </small>
+                      <div class="row justify-content-center">
+                        <button type="button" class="btn btn-outline-success" id="btnLoginform">Đăng Nhập</button>
+                        <button type="button" class="btn btn-outline-danger ml-2" id="btnRegister" >Đăng kí</button>
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="modal" id="ModalRegister" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalRegisterLabel">Đăng kí tài khoản</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Họ và tên <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="RegisterName" placeholder="Nguyễn Văn A">
+                        <small id="RegisterName-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Tài khoản Email <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="RegisterEmail" placeholder="example@gmail.com">
+                        <small id="RegisterEmail-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Mật khẩu <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="password" class="form-control form-login-txt" id="RegisterPassword1" placeholder="Nhập mât khẩu" >
+                        <small id="RegisterPassword1-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Nhập lại mật khẩu <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="password" class="form-control form-login-txt" id="RegisterPassword2" placeholder="Nhập lại mật khẩu" >
+                        <small id="RegisterPassword2-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Số điện thoại <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="RegisterPhone" placeholder="0925000000">
+                        <small id="RegisterPhone-note" class="form-text note"> </small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Địa chỉ <span style="color: red; font-style: italic;">*</span></label>
+                        <input type="text" class="form-control form-login-txt" id="RegisterAddress" placeholder="ĐH Công Nghiệp TP.HCM">
+                        <small id="RegisterAddress-note" class="form-text note"> </small>
+                      </div>
+
+                      <small id="Register-note" class="form-text note"> </small>
+
+                      <div class="row justify-content-center">
+                        <button type="button" class="btn btn-outline-danger" id="Register" >Đăng kí</button>
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    </div>   
+    <script>
+        changeIconGH();
+        var id = localStorage.getItem('id');
+        var product = data[id];
+        var thethao = product.informations_data[3] ;
+        var str1 = "";
+        var str2 = "";
+        var str3= "";
+        var str4 = "";
+        for(var i = 0 ; i < product.picture.length ; i++){
+            str1 += '  <div class="mySlides"><img src="../img/data_picture/'+ product.picture[i] +'" class="show-picture" > </div>'
+            str2 += '<div class="column"><img class="demo cursor" src="../img/data_picture/'+ product.picture[i] + '" onclick="currentSlide('+ (i+ 1) +')"></div>'
+            str3 += '<div class="column1"><img class="demo cursor" src="../img/data_picture/'+ product.picture[i] + '" onclick="currentSlide('+ (i+ 1) +')"></div>'
+        }
+        document.getElementById('slideshow').innerHTML = str1 + '<a class="prev" onclick="plusSlides(-1)">❮</a>' +
+                                                                '<a class="next" onclick="plusSlides(1)">❯</a>' + '<div class="row-img">'+ str2 +'</div>'
+                                                                +'<a class="next" onclick="plusSlides(1)">❯</a>' + '<div class="row-img">'+ str3 +'</div>';
+
+        document.getElementById('product-name-title').innerHTML = product.name;
+        document.getElementById('product-name-price').innerHTML = '<i>'+ Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(product.price * 1000) + '</i>';
+        document.getElementById('product-name-discriptions').innerHTML =  product.discriptions ;
+        document.getElementById('masp').innerHTML= 'Mã số sản phẩm: ' + product.informations_data[1];
+
+        for( var i = 0 ; i < product.informations_name.length ; i++){
+            str3 += '<tr> <th>'+ product.informations_name[i] + '</th> <td> ' + product.informations_data[i] + '</data></tr>';
+        }
+        document.getElementById('attributes').innerHTML = str3;
+        if(thethao === 'DungCuTapGym'){
+             document.getElementById('sptt-product').innerHTML = renderProductRandom(0,60,4);
+             document.getElementById('danhmuc').innerHTML = 'Danh mục sản phẩm: <a href="./DungCuTapGym.html"><i> <u> Dụng Cụ Tập Gym </u></i> </a>'
+             document.getElementById('path').innerHTML = `
+                <a href="./TrangChu.html"> Trang chủ / </a>
+                <a href="./DungCuTapGym.html"> Dụng Cụ Tập Gym </a>
+            `;
+        }
+        else if(thethao === 'DungCuYoga'){
+            document.getElementById('sptt-product').innerHTML = renderProductRandom(60,90,4);
+            document.getElementById('danhmuc').innerHTML = 'Danh mục sản phẩm: <a href="./DungCuYoga.html"><i> <u> Dụng Cụ Yoga </u></i> </a>'
+
+            document.getElementById('path').innerHTML = `
+                <a href="./TrangChu.html"> Trang chủ / </a>
+                <a href="./DungCuYoga.html"> Dụng Cụ Yoga </a>
+            `;
+        }
+        else if(thethao === 'MayChayBo') {
+            document.getElementById('danhmuc').innerHTML = 'Danh mục sản phẩm: <a href="./MayChayBo.html"><i> <u> Máy Chạy Bộ </u></i> </a>'
+            document.getElementById('sptt-product').innerHTML = renderProductRandom(90,120,4);
+            document.getElementById('path').innerHTML = `
+                <a href="./TrangChu.html"> Trang chủ / </a>
+                <a href="./MayChayBo.html.html"> Máy Chạy Bộ </a>
+            `;
+        }
+
+        else {
+          document.getElementById('danhmuc').innerHTML = 'Danh mục sản phẩm: <a href="./GheMassage.html"><i> <u> Ghế Massage </u></i> </a>'
+          document.getElementById('sptt-product').innerHTML = renderProductRandom(120,148,4);
+          document.getElementById('path').innerHTML = `
+              <a href="./TrangChu.html"> Trang chủ / </a>
+              <a href="./GheMassage.html"> Ghế Massage </a>
+          `;
+      }
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+            
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+        function changeValueGH(x){
+            var n = document.getElementById('soluong').value;
+            if(!(parseInt(n)==1 && x==-1))
+                document.getElementById('soluong').value = parseInt(n) + x ;
+        }
+        function valueGH(){
+            var n = parseInt(document.getElementById('soluong').value);
+            var gh = [];
+            if(localStorage.getItem("soluongsp") != null)
+                if(localStorage.getItem("giohang") != null)
+                    gh = localStorage.getItem("giohang").split(",");
+            
+            var slsp = parseInt(localStorage.getItem("soluongsp"));
+            gh[id] = String(parseInt(gh[id]) + n);
+            slsp += n;
+            localStorage.setItem("giohang",gh);
+            console.log(slsp);
+            console.log(gh)
+            changeIconGH();
+            // localStorage.removeItem('giohang');
+            // localStorage.removeItem('soluongsp');
+        }
+    </script>  
+</body>
+</html>

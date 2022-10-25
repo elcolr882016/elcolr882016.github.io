@@ -1,0 +1,23 @@
+.lienhe{
+    width: 100%;
+    max-width: 1230px;
+    margin: 2% auto;
+}
+.lienhe-tt{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family:'Times New Roman';
+    color: rgb(51, 22, 51);
+}
+.lienhe-showroom{
+    border-top: 2px dashed #e7e7e7;
+    padding-top:4vh;
+}
+.lienhe-img img{
+    width: 100%;
+}
+#camket{
+    width: 100%;
+    margin-top: 2%;
+}

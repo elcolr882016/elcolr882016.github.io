@@ -1,0 +1,62 @@
+.content{
+    max-width: 1230px !important;
+    padding: 2%  0 0 0 !important;
+    display: flex;
+    flex-direction: row;
+}
+.gioi-thieu-SV{
+    max-width: 1230px !important;
+    padding-top: 4% !important;
+    margin: auto;
+}
+
+.content .gioi-thieu-img{
+    width: 50%;
+    color: brown;
+}
+.content .gioi-thieu-img img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.content .gioi-thieu-txt{
+    width: 50%;
+    padding: 1.5% !important;
+
+}
+.member{
+    margin: auto;
+    max-width: 1230px !important;
+    padding-bottom: 2% !important;
+    line-height: 1.6;
+}
+.name-business{
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family:'Times New Roman';
+    color: rgb(51, 22, 51);
+}
+#member-img{
+    width: 70%;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+@media (max-width: 1070px){
+    .content{
+        flex-direction: column !important;
+    }
+    .content .gioi-thieu-img{
+        width: 100%;
+    }
+    .content .gioi-thieu-txt{
+        width: 100%;
+        padding: 1% !important;
+    
+    }
+}
+
+@media (max-width: 575.98px){
+    
+    
+}
